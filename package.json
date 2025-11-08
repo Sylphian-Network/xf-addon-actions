@@ -1,0 +1,30 @@
+{
+  "name": "xf-addon-actions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GitHub Actions to prepare/install, build, and cleanup a XenForo addon",
+  "license": "MIT",
+  "keywords": [
+    "github-actions",
+    "xenforo",
+    "addon",
+    "build"
+  ],
+  "author": "",
+  "scripts": {
+    "build": "npm run build:prepare-install && npm run build:build-release && npm run build:cleanup",
+    "build:prepare-install": "ncc build actions/prepare-install/index.js -o actions/prepare-install/dist -m",
+    "build:build-release": "ncc build actions/build-release/index.js -o actions/build-release/dist -m",
+    "build:cleanup": "ncc build actions/cleanup/index.js -o actions/cleanup/dist -m",
+    "clean": "rimraf --glob \"actions/**/dist\"",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/exec": "^1.1.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.4",
+    "rimraf": "^5.0.5"
+  }
+}

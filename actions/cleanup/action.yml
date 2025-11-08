@@ -1,0 +1,19 @@
+name: "XF Addon - Cleanup"
+description: "Uninstall the main addon (and optional dependencies) and remove their directories"
+author: "Sylphian Network"
+
+inputs:
+  main_addon:
+    description: "Main addon identifier (Vendor/AddonName or Vendor/AddonName:https_url)"
+    required: true
+  dependencies:
+    description: "Comma-separated list of dependency addons (Vendor/AddonName entries; URLs not needed for cleanup)"
+    required: false
+    default: ""
+  base_dir:
+    description: "The path to the XenForo dev directory (e.g. /var/www/github.runner)"
+    required: true
+
+runs:
+  using: "node16"
+  main: "dist/index.js"

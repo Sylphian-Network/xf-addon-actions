@@ -1,0 +1,21 @@
+name: "XF Addon - Build Release"
+description: "Build a release for the main addon and expose version + artifact path"
+author: "Sylphian Network"
+
+inputs:
+  main_addon:
+    description: "Main addon identifier (Vendor/AddonName or Vendor/AddonName:https_url)"
+    required: true
+  base_dir:
+    description: "The path to the XenForo dev directory (e.g. /var/www/github.runner)"
+    required: true
+
+outputs:
+  version:
+    description: "Version string from addon.json"
+  release_path:
+    description: "Glob path to the built zip artifact(s)"
+
+runs:
+  using: "node16"
+  main: "dist/index.js"

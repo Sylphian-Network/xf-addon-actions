@@ -1,0 +1,22 @@
+name: "XF Addon - Prepare & Install"
+description: "Pre-clean, clone/refresh addons, and install dependencies + main addon"
+author: "Sylphian Network"
+
+inputs:
+  main_addon:
+    description: "Main addon identifier, optionally with repo URL (Vendor/AddonName or Vendor/AddonName:https_url)"
+    required: true
+  dependencies:
+    description: "Comma-separated list of dependency addons with optional repo URLs (Vendor/AddonName or Vendor/AddonName:https_url)"
+    required: false
+    default: ""
+  base_dir:
+    description: "The path to the XenForo dev directory (e.g. /var/www/github.runner)"
+    required: true
+  gh_token:
+    description: "GitHub token for cloning private repositories"
+    required: true
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
