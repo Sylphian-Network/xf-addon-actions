@@ -1,0 +1,19 @@
+name: "XF Addon - PHP Lint"
+description: "Run PHP syntax linter (php -l) across the main addon"
+author: "Sylphian Network"
+
+inputs:
+  main_addon:
+    description: "Main addon identifier (Vendor/AddonName or Vendor/AddonName:https_url)"
+    required: true
+  base_dir:
+    description: "The path to the XenForo dev directory (e.g. /var/www/github.runner)"
+    required: true
+  php_path:
+    description: "Path to the PHP binary (defaults to 'php' in PATH)"
+    required: false
+    default: "php"
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
