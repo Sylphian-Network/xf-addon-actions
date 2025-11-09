@@ -12,10 +12,11 @@
   ],
   "author": "",
   "scripts": {
-    "build": "npm run build:prepare-install && npm run build:build-release && npm run build:php-lint && npm run build:cleanup",
+    "build": "npm run build:prepare-install && npm run build:build-release && npm run build:php-lint && npm run build:php-cs-fixer && npm run build:cleanup",
     "build:prepare-install": "ncc build actions/prepare-install/index.js -o actions/prepare-install/dist -m",
     "build:build-release": "ncc build actions/build-release/index.js -o actions/build-release/dist -m",
     "build:php-lint": "ncc build actions/php-lint/index.js -o actions/php-lint/dist -m",
+    "build:php-cs-fixer": "ncc build actions/php-cs-fixer/index.js -o actions/php-cs-fixer/dist -m",
     "build:cleanup": "ncc build actions/cleanup/index.js -o actions/cleanup/dist -m",
     "clean": "rimraf --glob \"actions/**/dist\"",
     "prepare": "npm run build"

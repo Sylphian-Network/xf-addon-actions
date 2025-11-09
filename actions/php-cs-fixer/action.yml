@@ -1,0 +1,15 @@
+name: "XF Addon - PHP CS Fixer"
+description: "Run php-cs-fixer on the main addon"
+author: "Sylphian Network"
+
+inputs:
+  main_addon:
+    description: "Main addon identifier (Vendor/AddonName or Vendor/AddonName:https_url)"
+    required: true
+  base_dir:
+    description: "The path to the XenForo dev directory (e.g. /var/www/github.runner)"
+    required: true
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
